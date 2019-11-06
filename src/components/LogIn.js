@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import fire from './Fire';
+import fire from '../Fire/Fire';
 // import { signup } from './SignUp';
 import { Link, Router } from '@reach/router';
 import SignUp from './SignUp';
@@ -38,34 +38,33 @@ export default class LogIn extends Component {
         <div>
           <form>
             <div>
-              <label htmlFor="exampleemail">Type email </label>
+              <label htmlFor='exampleemail'>Type email </label>
               <input
-                type="email"
+                type='email'
                 value={email}
-                name="email"
+                name='email'
                 onChange={this.handleChange}
               />
             </div>
             <div>
-              <label htmlFor="examplePassword">Type Password </label>
+              <label htmlFor='examplePassword'>Type Password </label>
               <input
-                type="password"
+                type='password'
                 value={password}
-                name="password"data
+                name='password'
+                data
                 onChange={this.handleChange}
               />
             </div>
-            <button type="submit" onClick={this.login}>
+            <button type='submit' onClick={this.login}>
               Sign In
             </button>
-            <Link to="/signup" userRR={user}>
-              <button type="submit" >
-                Sign Up
-              </button>
+            <Link to='/signup' userRR={user}>
+              <button type='submit'>Sign Up</button>
             </Link>
           </form>
           <Router>
-            <SignUp path="/signup"  handleChange={this.handleChange}/>
+            <SignUp path='/signup' handleChange={this.handleChange} />
           </Router>
         </div>
       </>

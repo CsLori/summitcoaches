@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { fetchData } from './api';
 import LogIn from './components/LogIn';
-import fire from './components/Fire';
+import fire from './Fire/Fire';
 import Home from './components/Home';
 import { Router } from '@reach/router';
 import SignUp from './components/SignUp';
@@ -30,12 +30,12 @@ class App extends Component {
     const { userLoggedIn } = this.state;
     return (
       // <>
-      <div className="App">
+      <div className='App'>
         <p>hello</p>
         <Router>
-          <Home path="/" userLoggedIn={userLoggedIn} />
-          <LogIn path="/login" />
-          <SignUp path="/signup" />
+          <Home path='/' userLoggedIn={userLoggedIn} />
+          <LogIn path='/login' />
+          <SignUp path='/signup' />
         </Router>
         {/* </> */}
       </div>

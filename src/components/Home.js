@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import fire from './Fire';
+import fire from '../Fire/Fire';
 import LogIn from './LogIn';
 
 export default class Home extends Component {
@@ -12,7 +12,7 @@ export default class Home extends Component {
       <div>
         <p>home </p>
         {!userLoggedIn ? (
-          <LogIn path="/login" userLoggedIn={userLoggedIn} />
+          <LogIn path='/login' userLoggedIn={userLoggedIn} />
         ) : (
           <button onClick={this.signout}>Sign Out</button>
         )}
