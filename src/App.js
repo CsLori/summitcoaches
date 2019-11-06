@@ -1,26 +1,54 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import { fetchData } from './api';
+import LogIn from './components/LogIn';
+import fire from './components/Fire';
+import Home from './components/Home';
+import { Router } from '@reach/router';
+import SignUp from './components/SignUp';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {
+    userLoggedIn: {},
+    data: null
+  };
+
+  authListener() {
+    fire.auth().onAuthStateChanged(userLoggedIn => {
+      console.log(userLoggedIn);
+      if (userLoggedIn) {
+        this.setState({ userLoggedIn });
+        localStorage.setItem('userLoggedIn', userLoggedIn.uid);
+      } else {
+        this.setState({ userLoggedIn: null });
+        localStorage.removeItem('userLoggedIn');
+      }
+    });
+  }
+
+  render() {
+    const { userLoggedIn } = this.state;
+    return (
+      // <>
+      <div className="App">
+        <p>hello</p>
+        <Router>
+          <Home path="/" userLoggedIn={userLoggedIn} />
+          <LogIn path="/login" />
+          <SignUp path="/signup" />
+        </Router>
+        {/* </> */}
+      </div>
+    );
+  }
+
+  componentDidMount() {
+    this.authListener();
+    this.getData();
+  }
+  getData = () => {
+    fetchData().then(data => console.log(data));
+  };
 }
 
 export default App;
