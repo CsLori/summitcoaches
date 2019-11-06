@@ -22,25 +22,16 @@ export default class SignUp extends Component {
   };
 
   handleChange = e => {
-    const { user } = this.state;
-    const name = e.target.name;
-    const value = e.target.value;
+    const { name, value } = e.target;
 
     this.setState(prevState => ({
       ...prevState,
-
-      user: { [name]: value }
+      user: { ...prevState.user, [name]: value }
     }));
-    // const newObj = { ...user };
-    // const newElement = { ...newObj[name] };
-    // newElement.value = value;
-    // newObj[name] = newElement;
-    // this.setState({ user: newObj });
   };
 
   signup = e => {
     const { user } = this.state;
-
     e.preventDefault();
     fire
       .auth()
