@@ -22,17 +22,23 @@ export default class SignUp extends Component {
   };
 
   handleChange = e => {
-const {user} =this.state 
-const {value, name} = e.target
+    const { user } = this.state;
+    const name = e.target.name;
+    const value = e.target.value;
 
-const newObj = {...user}
-const newElement = {...newObj[name]}
-newElement.value = value
-newObj[name] = newElement
-    this.setState({user : newObj});
+    this.setState(prevState => ({
+      ...prevState,
+
+      user: { [name]: value }
+    }));
+    // const newObj = { ...user };
+    // const newElement = { ...newObj[name] };
+    // newElement.value = value;
+    // newObj[name] = newElement;
+    // this.setState({ user: newObj });
   };
 
-   signup = e => {
+  signup = e => {
     const { user } = this.state;
 
     e.preventDefault();
@@ -46,51 +52,52 @@ newObj[name] = newElement
   };
 
   render() {
-
-        const { password, lastname, firstname, address, number, email } = this.state.user;
-
- 
+    const {
+      password,
+      lastname,
+      firstname,
+      address,
+      number,
+      email
+    } = this.state.user;
 
     return (
       <form onSubmit={this.signup}>
-      
-         <div>
-                  <label htmlFor="exampleFirstName">FirstName</label>
-        <input
-          type="firstname"
+        <div>
+          <label htmlFor="exampleFirstName">FirstName</label>
+          <input
+            type="firstname"
             value={firstname}
-          name="firstname"
-          onChange={this.handleChange}
-        />
-     
-        <label htmlFor="exampleLastName">LastName </label>
-        <input
-          type="lastname"
+            name="firstname"
+            onChange={this.handleChange}
+          />
+
+          <label htmlFor="exampleLastName">LastName </label>
+          <input
+            type="lastname"
             value={lastname}
-          name="lastname"
-          onChange={this.handleChange}
-        />
-    
-        <label htmlFor="exampleemail">Type email </label>
-        <input
-          type="email"
-          value={email}
-          name="email"
-          onChange={this.handleChange}
-        />
-     
-        <label htmlFor="examplePassword">Type Password </label>
-        <input
-          type="password"
-          value={password}
-          name="password"
-          onChange={this.handleChange}
-        />
-      </div> 
-      
-        <button type="submit">
-          Sign Up
-        </button>
+            name="lastname"
+            onChange={this.handleChange}
+          />
+
+          <label htmlFor="exampleemail">Type email </label>
+          <input
+            type="email"
+            value={email}
+            name="email"
+            onChange={this.handleChange}
+          />
+
+          <label htmlFor="examplePassword">Type Password </label>
+          <input
+            type="password"
+            value={password}
+            name="password"
+            onChange={this.handleChange}
+          />
+        </div>
+
+        <button type="submit">Sign Up</button>
       </form>
     );
   }
