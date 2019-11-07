@@ -1,0 +1,22 @@
+.header-img {
+  height: 400px;
+  width: 100%;
+  opacity: 0.8;
+  box-shadow: 0 4px 3px 0 #a4bd72;
+}
+
+.home-container {
+  margin: 20px auto;
+  text-align: center;
+  width: 80%;
+}
+
+.home-container article {
+  text-align: justify;
+}
+
+@media screen and (max-width: 767px) {
+  .header-img {
+    display: none;
+  }
+}

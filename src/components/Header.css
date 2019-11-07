@@ -1,0 +1,9 @@
+.navbar-container {
+  background-color: white;
+}
+.navbar-container li a {
+  font-style: italic;
+}
+.navbar-container li a:hover {
+  font-weight: bold;
+}

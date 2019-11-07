@@ -6,16 +6,16 @@ import fire from './Fire/Fire';
 import Home from './components/Home';
 import { Router } from '@reach/router';
 import SignUp from './components/SignUp';
+import Header from './components/Header';
 
 class App extends Component {
   state = {
-    userLoggedIn: {},
+    userLoggedIn: null,
     data: null
   };
 
   authListener() {
     fire.auth().onAuthStateChanged(userLoggedIn => {
-      console.log(userLoggedIn);
       if (userLoggedIn) {
         this.setState({ userLoggedIn });
         localStorage.setItem('userLoggedIn', userLoggedIn.uid);
@@ -29,15 +29,13 @@ class App extends Component {
   render() {
     const { userLoggedIn } = this.state;
     return (
-      // <>
       <div className='App'>
-        <p>hello</p>
+        <Header userLoggedIn={userLoggedIn} />
         <Router>
-          <Home path='/' userLoggedIn={userLoggedIn} />
+          <Home path='/' />
           <LogIn path='/login' />
           <SignUp path='/signup' />
         </Router>
-        {/* </> */}
       </div>
     );
   }
@@ -46,8 +44,9 @@ class App extends Component {
     this.authListener();
     this.getData();
   }
+
   getData = () => {
-    fetchData().then(data => console.log(data));
+    fetchData().then(data => {});
   };
 }
 

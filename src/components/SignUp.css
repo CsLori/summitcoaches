@@ -1,0 +1,13 @@
+.signup-container {
+  width: 300px;
+  margin: auto;
+  margin-top: 20px;
+}
+label {
+  text-transform: capitalize;
+}
+@media screen and (max-width: 400px) {
+  .signup-container {
+    width: 75%;
+  }
+}

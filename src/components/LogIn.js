@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import './Login.css';
 import fire from '../Fire/Fire';
-// import { signup } from './SignUp';
-import { Link, Router } from '@reach/router';
+import { Link, Router, navigate } from '@reach/router';
 import SignUp from './SignUp';
 
 export default class LogIn extends Component {
@@ -9,7 +10,8 @@ export default class LogIn extends Component {
     user: {
       password: 'pass123',
       email: 'test@test.com'
-    }
+    },
+    error: null
   };
 
   handleChange = e => {
@@ -24,45 +26,45 @@ export default class LogIn extends Component {
         this.state.user.email,
         this.state.user.password
       )
-      .then(u => {})
+      .then(u => navigate('/'))
       .catch(error => {
-        console.log(error);
+        this.setState({ error: error.message });
       });
   };
 
   render() {
-    const { user } = this.state;
-    const { password, email } = this.state.user;
+    const { user, error } = this.state;
     return (
       <>
-        <div>
-          <form>
-            <div>
-              <label htmlFor='exampleemail'>Type email </label>
-              <input
+        <div className='login-container'>
+          {error && <p>{error}</p>}
+          <Form>
+            <FormGroup>
+              <Label htmlFor='exampleemail'>Email:</Label>
+              <Input
                 type='email'
-                value={email}
+                value={user.email}
                 name='email'
                 onChange={this.handleChange}
               />
-            </div>
-            <div>
-              <label htmlFor='examplePassword'>Type Password </label>
-              <input
+            </FormGroup>
+            <FormGroup>
+              <Label htmlFor='examplePassword'>Password:</Label>
+              <Input
                 type='password'
-                value={password}
+                value={user.password}
                 name='password'
                 data
                 onChange={this.handleChange}
               />
-            </div>
-            <button type='submit' onClick={this.login}>
-              Sign In
-            </button>
-            <Link to='/signup' userRR={user}>
-              <button type='submit'>Sign Up</button>
+            </FormGroup>
+            <Button outline color='primary' type='submit' onClick={this.login}>
+              Login
+            </Button>
+            <Link to='/signup'>
+              <p>Not registered? Create Account!</p>
             </Link>
-          </form>
+          </Form>
           <Router>
             <SignUp path='/signup' handleChange={this.handleChange} />
           </Router>
