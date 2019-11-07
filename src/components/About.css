@@ -1,0 +1,10 @@
+.about-container {
+  width: 80%;
+  margin: 20px auto;
+  text-align: justify;
+}
+
+.about-container h2 {
+  font-weight: bold;
+  font-style: italic;
+}

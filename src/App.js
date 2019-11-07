@@ -7,6 +7,9 @@ import Home from './components/Home';
 import { Router } from '@reach/router';
 import SignUp from './components/SignUp';
 import Header from './components/Header';
+import Terms from './components/Terms';
+import Services from './components/Services';
+import About from './components/About';
 
 class App extends Component {
   state = {
@@ -35,6 +38,9 @@ class App extends Component {
           <Home path='/' />
           <LogIn path='/login' />
           <SignUp path='/signup' />
+          <Terms path='/terms' />
+          <Services path='/services' />
+          <About path='/about' />
         </Router>
       </div>
     );

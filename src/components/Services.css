@@ -1,0 +1,14 @@
+.services-container {
+  width: 80%;
+  margin: 20px auto;
+}
+
+.services-container h2 {
+  font-weight: bold;
+  font-style: italic;
+}
+
+.card-title {
+  color: red;
+  font-weight: bold;
+}
