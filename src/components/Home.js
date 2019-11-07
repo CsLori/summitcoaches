@@ -1,25 +1,16 @@
 import React, { Component } from 'react';
-import minibus1 from '../assets/img/minibus1.jpg';
-import header from '../assets/img/header.jpg';
 
 import './Home.css';
-import {
-  Card,
-  CardImg,
-  CardText,
-  CardBody,
-  CardTitle,
-  Button
-} from 'reactstrap';
+import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
 
 export default class Home extends Component {
   render() {
     return (
       <>
-        <img className='header-img' src={header} alt='background' />
+        <img className='header-img' src='/img/header.jpg' alt='background' />
         <div className='home-container'>
           <Card>
-            <CardImg top width='100%' src={minibus1} alt='minibus' />
+            <CardImg top width='100%' src='/img/minibus1.jpg' alt='minibus' />
             <CardBody>
               <CardTitle>
                 <h3> Minibus Hire</h3>

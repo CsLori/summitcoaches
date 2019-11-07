@@ -1,14 +1,34 @@
 .services-container {
-  width: 80%;
-  margin: 20px auto;
+  width: 50%;
+  margin: 120px auto;
 }
 
 .services-container h2 {
   font-weight: bold;
   font-style: italic;
 }
+.card img {
+  height: 500px;
+}
 
 .card-title {
   color: red;
   font-weight: bold;
+}
+
+@media screen and (max-width: 420px) {
+  .services-container {
+    width: 90%;
+  }
+  .card img {
+    height: 200px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .services-container {
+    width: 80%;
+  }
+  .card img {
+    height: 300px;
+  }
 }

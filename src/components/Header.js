@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import logo from '../assets/img/logo.jpg';
+
 import fire from '../Fire/Fire';
 
 import './Header.css';
@@ -26,7 +26,11 @@ export default function Header({ userLoggedIn }) {
     <div className='navbar-container'>
       <Navbar light expand='md'>
         <NavbarBrand href='/'>
-          <img style={{ width: '75px', height: '50px' }} src={logo} alt='log' />
+          <img
+            style={{ width: '75px', height: '50px' }}
+            src='/img/logo.jpg'
+            alt='log'
+          />
         </NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>

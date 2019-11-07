@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-  Card,
-  CardBody,
-  Button,
-  CardTitle,
-  CardText,
-  CardImg
-} from 'reactstrap';
+import { Card, CardBody, CardTitle, CardText, CardImg } from 'reactstrap';
 import './Services.css';
 export default function Services() {
   return (
