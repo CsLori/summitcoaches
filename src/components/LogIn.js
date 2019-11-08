@@ -66,7 +66,7 @@ export default class LogIn extends Component {
             </Link>
           </Form>
           <Router>
-            <SignUp path='/signup' handleChange={this.handleChange} />
+            <SignUp path='/signup' />
           </Router>
         </div>
       </>

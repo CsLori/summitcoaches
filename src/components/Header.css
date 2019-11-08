@@ -1,15 +1,31 @@
 .navbar-container {
   background-color: white;
   border-bottom: 1px solid #ccc;
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   right: 0;
   height: 80px;
+  z-index: 100;
 }
+
 .navbar-container li a {
   font-style: italic;
-}
-.navbar-container li a:hover {
+  text-align: right;
+  float: right;
   font-weight: bold;
+}
+
+.navbar-container li a:hover {
+  font-weight: bolder;
+}
+
+@media screen and (max-width: 767px) {
+  .ml-auto {
+    background-color: #f5f5f5;
+    width: 40%;
+    opacity: 0.8;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+  }
 }

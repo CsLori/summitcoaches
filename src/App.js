@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import { fetchData } from './api';
 import LogIn from './components/LogIn';
 import fire from './Fire/Fire';
 import Home from './components/Home';
@@ -10,6 +9,9 @@ import Header from './components/Header';
 import Terms from './components/Terms';
 import Services from './components/Services';
 import About from './components/About';
+import UserList from './components/UserList';
+import UserCard from './components/UserCard';
+import Footer from './components/Footer';
 
 class App extends Component {
   state = {
@@ -29,6 +31,10 @@ class App extends Component {
     });
   }
 
+  componentDidMount() {
+    this.authListener();
+  }
+
   render() {
     const { userLoggedIn } = this.state;
     return (
@@ -41,19 +47,13 @@ class App extends Component {
           <Terms path='/terms' />
           <Services path='/services' />
           <About path='/about' />
+          <UserList path='/users' />
+          <UserCard path='/users/:id' />
         </Router>
+        <Footer />
       </div>
     );
   }
-
-  componentDidMount() {
-    this.authListener();
-    this.getData();
-  }
-
-  getData = () => {
-    fetchData().then(data => {});
-  };
 }
 
 export default App;

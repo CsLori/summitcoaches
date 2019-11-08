@@ -7,22 +7,28 @@
 
 .home-container {
   margin: 120px auto;
-  text-align: center;
-  width: 50%;
+  width: 60%;
 }
 
-.home-container article {
+.home-container .card-title {
+  color: red;
+  font-weight: bold;
+}
+
+.home-container .card-text {
   text-align: justify;
 }
-.card img {
-  height: 400px;
+
+.home-container .card img {
+  height: 500px;
 }
-@media screen and (max-width: 420px) {
-  .services-container {
-    width: 90%;
+
+@media screen and (max-width: 1244px) {
+  .home-container {
+    width: 80%;
   }
-  .card img {
-    height: 200px;
+  .home-container .card img {
+    height: 400px;
   }
 }
 
@@ -31,9 +37,18 @@
     display: none;
   }
   .home-container {
-    width: 80%;
+    width: 90%;
   }
-  .card img {
-    height: 400px;
+  .home-container .card img {
+    height: 380px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .home-container {
+    width: 100%;
+  }
+  .home-container .card img {
+    height: 260px;
   }
 }

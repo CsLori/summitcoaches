@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { navigate } from '@reach/router';
+
 import fire from '../Fire/Fire';
 import { createUser } from '../api';
 import './SignUp.css';
@@ -40,6 +42,7 @@ export default class SignUp extends Component {
         ...userForm,
         id: data.name
       };
+      navigate('/');
       console.log(userData);
     });
   };

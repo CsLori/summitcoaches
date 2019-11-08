@@ -1,5 +1,5 @@
 .services-container {
-  width: 50%;
+  width: 60%;
   margin: 120px auto;
 }
 
@@ -7,28 +7,38 @@
   font-weight: bold;
   font-style: italic;
 }
-.card img {
+.services-container .card img {
   height: 500px;
 }
 
-.card-title {
+.services-container .card-title {
   color: red;
   font-weight: bold;
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 1244px) {
+  .services-container {
+    width: 60%;
+  }
+  .services-container .card img {
+    height: 320px;
+  }
+}
+
+@media screen and (max-width: 767px) {
   .services-container {
     width: 90%;
   }
-  .card img {
-    height: 200px;
+  .services-container .card img {
+    height: 300px;
   }
 }
-@media screen and (max-width: 767px) {
+
+@media screen and (max-width: 420px) {
   .services-container {
-    width: 80%;
+    width: 100%;
   }
-  .card img {
-    height: 300px;
+  .services-container .card img {
+    height: 200px;
   }
 }

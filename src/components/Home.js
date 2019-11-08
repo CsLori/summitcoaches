@@ -12,15 +12,11 @@ export default class Home extends Component {
           <Card>
             <CardImg top width='100%' src='/img/minibus1.jpg' alt='minibus' />
             <CardBody>
-              <CardTitle>
-                <h3> Minibus Hire</h3>
-              </CardTitle>
+              <CardTitle>Minibus Hire</CardTitle>
               <CardText>
-                <article>
-                  Airport transfers, day trips, sports events, corporate events,
-                  festivals, school trips, special events, city breaks,
-                  weddings, etc.
-                </article>
+                Airport transfers, day trips, sports events, corporate events,
+                festivals, school trips, special events, city breaks, weddings,
+                etc. <br />
                 For enquiries, please contact us at <br />{' '}
                 <a href='mailto:sales@summitcoaches@co.uk'>
                   sales@summitcoaches@co.uk
