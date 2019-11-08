@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
 import './App.css';
-import LogIn from './components/LogIn';
 import fire from './Fire/Fire';
-import Home from './components/Home';
 import { Router } from '@reach/router';
-import SignUp from './components/SignUp';
-import Header from './components/Header';
-import Terms from './components/Terms';
-import Services from './components/Services';
-import About from './components/About';
-import UserList from './components/UserList';
-import UserCard from './components/UserCard';
-import Footer from './components/Footer';
+
+import LogIn from './components/pages/LogIn';
+import Home from './components/pages/Home';
+import SignUp from './components/pages/SignUp';
+import Header from './components/reuseable/Header';
+import Terms from './components/pages/Terms';
+import Services from './components/pages/Services';
+import About from './components/pages/About';
+import UserList from './components/reuseable/UserList';
+import UserCard from './components/reuseable/UserCard';
+import Footer from './components/reuseable/Footer';
 
 class App extends Component {
   state = {

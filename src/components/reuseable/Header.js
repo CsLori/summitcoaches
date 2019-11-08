@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import fire from '../Fire/Fire';
+import fire from '../../Fire/Fire';
 
 import './Header.css';
 import {

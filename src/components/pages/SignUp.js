@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { navigate } from '@reach/router';
 
-import fire from '../Fire/Fire';
-import { createUser } from '../api';
+import fire from '../../Fire/Fire';
+import { createUser } from '../../api';
 import './SignUp.css';
 
 export default class SignUp extends Component {

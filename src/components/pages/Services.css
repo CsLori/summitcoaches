@@ -2,7 +2,9 @@
   width: 60%;
   margin: 120px auto;
 }
-
+.services-container .card {
+  margin: 20px auto;
+}
 .services-container h2 {
   font-weight: bold;
   font-style: italic;

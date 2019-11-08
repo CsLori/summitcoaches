@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { fetchUser } from '../api';
+import { fetchUser } from '../../api';
 import './UserCard.css';
 import {
   Card,

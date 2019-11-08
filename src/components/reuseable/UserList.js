@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { fetchUsers } from '../api';
+import { fetchUsers } from '../../api';
 import { ListGroup, ListGroupItem } from 'reactstrap';
 import { Link } from '@reach/router';
 

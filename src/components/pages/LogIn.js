@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import './Login.css';
-import fire from '../Fire/Fire';
+import fire from '../../Fire/Fire';
 import { Link, Router, navigate } from '@reach/router';
 import SignUp from './SignUp';
 
