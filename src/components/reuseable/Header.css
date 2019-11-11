@@ -2,25 +2,26 @@
   background-color: white;
   border-bottom: 1px solid #ccc;
   position: sticky;
+  align-items: center;
   top: 0;
   left: 0;
   right: 0;
   height: 80px;
   z-index: 100;
+  position: relative;
 }
 
-.button.mr-auto.navbar-toggler{
-  border: 2px solid red
+.navbar-container li {
+  font-style: italic;
+  text-align: center;
+  font-weight: bold;
 }
 
 .navbar-container li a {
   font-style: italic;
   text-align: center;
-  /* float: right; */
   font-weight: bold;
 }
-
-
 
 .navbar-container li a:hover {
   font-weight: bolder;
@@ -33,5 +34,18 @@
     opacity: 0.8;
     border-radius: 3px;
     border: 1px solid #ccc;
+  }
+
+  div.collapse.show.navbar-collapse {
+    position: relative;
+    /* border: 2px solid red; */
+    top: -1rem;
+  }
+  button.mr-auto.navbar-toggler {
+    position: absolute;
+    cursor: pointer;
+    top: 1rem;
+    right: 1rem;
+    margin: 0;
   }
 }
