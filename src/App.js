@@ -13,6 +13,7 @@ import About from './components/pages/About';
 import UserList from './components/reuseable/UserList';
 import UserCard from './components/reuseable/UserCard';
 import Footer from './components/reuseable/Footer';
+import Contact from './components/pages/Contact';
 
 class App extends Component {
   state = {
@@ -48,6 +49,7 @@ class App extends Component {
           <Terms path='/terms' />
           <Services path='/services' />
           <About path='/about' />
+          <Contact path='/contact' />
           <UserList path='/users' />
           <UserCard path='/users/:id' />
         </Router>

@@ -1,0 +1,12 @@
+.contact-container {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  margin: 60px auto;
+  width: 80%;
+}
+
+.contact-container .card {
+  width: 30%;
+  flex-grow: 1;
+}
