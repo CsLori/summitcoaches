@@ -9,12 +9,18 @@
   z-index: 100;
 }
 
+.button.mr-auto.navbar-toggler{
+  border: 2px solid red
+}
+
 .navbar-container li a {
   font-style: italic;
-  text-align: right;
-  float: right;
+  text-align: center;
+  /* float: right; */
   font-weight: bold;
 }
+
+
 
 .navbar-container li a:hover {
   font-weight: bolder;

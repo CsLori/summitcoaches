@@ -32,7 +32,7 @@ export default function Header({ userLoggedIn }) {
             alt='log'
           />
         </NavbarBrand>
-        <NavbarToggler onClick={toggle} />
+        <NavbarToggler onClick={toggle} className="mr-auto"/>
         <Collapse isOpen={isOpen} navbar>
           <Nav className='ml-auto' navbar>
             <NavItem>

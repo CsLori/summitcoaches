@@ -8,13 +8,13 @@ export default function Contact() {
     height: '100%',
     border: '6px solid black',
     boxSizing: 'border-box',
-    flexGrow: 3
+    // flexGrow: 3
   };
 
   return (
-    <div className='contact-container'>
+    <div className="contact-container">
       <Card style={{ flexGrow: '1' }}>
-        <CardImg top width='100%' src='/img/logo.jpg' alt='Card image cap' />
+        <CardImg top width="100%" src="/img/logo.jpg" alt="Card image cap" />
         <CardBody>
           <CardTitle>Company details:</CardTitle>
           <CardText>
@@ -31,15 +31,15 @@ export default function Contact() {
         </CardBody>
       </Card>
       <div
-        id='map-container-google-2'
-        className='z-depth-1-half map-container'
+        id="map-container-google-2"
+        className="z-depth-1-half map-container"
         style={{ height: '500px' }}
       >
         <iframe
-          src='https://maps.google.com/maps?q=128+middlefields+croydon+CR09LH&t=&z=13&ie=UTF8&iwloc=&output=embed'
+          src="https://maps.google.com/maps?q=128+middlefields+croydon+CR09LH&t=&z=13&ie=UTF8&iwloc=&output=embed"
           //   frameborder='0'
           style={style}
-          title='address'
+          title="address"
           //   allowfullscreen
         ></iframe>
       </div>
