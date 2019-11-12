@@ -23,39 +23,42 @@ export default function Header({ userLoggedIn }) {
   };
 
   return (
-    <div className='navbar-container'>
-      <Navbar light expand='md'>
-        <NavbarBrand href='/'>
+    <div className="navbar-container">
+      <Navbar light expand="md">
+        <NavbarBrand href="/">
           <img
             style={{ width: '75px', height: '50px' }}
-            src='/img/logo.jpg'
-            alt='log'
+            src="/img/logo.jpg"
+            alt="log"
           />
         </NavbarBrand>
-        <NavbarToggler onClick={toggle} className="mr-auto"/>
+        <NavbarToggler onClick={toggle} className="mr-auto" />
         <Collapse isOpen={isOpen} navbar>
-          <Nav className='ml-auto' navbar>
+          <Nav className="ml-auto" navbar>
             <NavItem>
-              <NavLink href='/services'>SERVICES</NavLink>
+              <NavLink href="/services">SERVICES</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href='/contact'>CONTACT US</NavLink>
+              <NavLink href="/contact">CONTACT US</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href='/about'>ABOUT US</NavLink>
+              <NavLink href="/about">ABOUT US</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href='/terms'>TERMS AND CONDITIONS</NavLink>
+              <NavLink href="/terms">TERMS AND CONDITIONS</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="/quote">GET QUOTE</NavLink>
             </NavItem>
             {userLoggedIn ? (
               <NavItem>
-                <NavLink href='/' onClick={signout}>
+                <NavLink href="/" onClick={signout}>
                   SIGN OUT
                 </NavLink>
               </NavItem>
             ) : (
               <NavItem>
-                <NavLink href='/login'>LOGIN</NavLink>
+                <NavLink href="/login">ADMIN LOGIN</NavLink>
               </NavItem>
             )}
           </Nav>

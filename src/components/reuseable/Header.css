@@ -1,16 +1,23 @@
 .navbar-container {
   background-color: white;
   border-bottom: 1px solid #ccc;
-  position: sticky;
+  position: fixed;
   align-items: center;
   top: 0;
   left: 0;
   right: 0;
   height: 80px;
   z-index: 100;
-  position: relative;
+  /* position: relative; */
 }
 
+nav img {
+  margin-top: 0.5rem;
+  margin-left: 1rem;
+}
+nav.navbar.navbar-expand-md.navbar-light {
+  padding: 0;
+}
 .navbar-container li {
   font-style: italic;
   text-align: center;

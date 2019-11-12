@@ -32,3 +32,26 @@ export const createUser = user => {
     )
     .then(({ data }) => data);
 };
+
+export const createQuote = quote => {
+  return axios
+    .post(
+      'https://summitcoaches-98d9a.firebaseio.com/quotes.json',
+      quote
+      // , {
+      //   name: 'Jockey'
+      // }
+    )
+    .then(({ data }) => console.log(data));
+};
+export const getQuotes = () => {
+  return axios
+    .get(
+      'https://summitcoaches-98d9a.firebaseio.com/quotes.json'
+
+      // , {
+      //   name: 'Jockey'
+      // }
+    )
+    .then(({ data }) => data);
+};

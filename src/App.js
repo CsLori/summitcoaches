@@ -14,6 +14,8 @@ import UserList from './components/reuseable/UserList';
 import UserCard from './components/reuseable/UserCard';
 import Footer from './components/reuseable/Footer';
 import Contact from './components/pages/Contact';
+import Quote from './components/pages/Quote';
+import Quotes from './components/pages/Quotes';
 
 class App extends Component {
   state = {
@@ -40,18 +42,20 @@ class App extends Component {
   render() {
     const { userLoggedIn } = this.state;
     return (
-      <div className='App'>
+      <div className="App">
         <Header userLoggedIn={userLoggedIn} />
         <Router>
-          <Home path='/' />
-          <LogIn path='/login' />
-          <SignUp path='/signup' />
-          <Terms path='/terms' />
-          <Services path='/services' />
-          <About path='/about' />
-          <Contact path='/contact' />
-          <UserList path='/users' />
-          <UserCard path='/users/:id' />
+          <Home path="/" />
+          <LogIn path="/login" />
+          <SignUp path="/signup" />
+          <Terms path="/terms" />
+          <Services path="/services" />
+          <About path="/about" />
+          <Contact path="/contact" />
+          <UserList path="/users" />
+          <UserCard path="/users/:id" />
+          <Quote path="/quote" />
+          <Quotes path="/quotes" />
         </Router>
         <Footer />
       </div>

@@ -1,0 +1,9 @@
+div form {
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 767px) {
+  div form {
+    width: 90%;
+  }
+}

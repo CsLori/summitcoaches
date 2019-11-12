@@ -26,7 +26,7 @@ export default class LogIn extends Component {
         this.state.user.email,
         this.state.user.password
       )
-      .then(u => navigate('/'))
+      .then(u => navigate('/quotes'))
       .catch(error => {
         this.setState({ error: error.message });
       });
@@ -36,37 +36,37 @@ export default class LogIn extends Component {
     const { user, error } = this.state;
     return (
       <>
-        <div className='login-container'>
+        <div className="login-container">
           {error && <p>{error}</p>}
           <Form>
             <FormGroup>
-              <Label htmlFor='exampleemail'>Email:</Label>
+              <Label htmlFor="exampleemail">Email:</Label>
               <Input
-                type='email'
+                type="email"
                 value={user.email}
-                name='email'
+                name="email"
                 onChange={this.handleChange}
               />
             </FormGroup>
             <FormGroup>
-              <Label htmlFor='examplePassword'>Password:</Label>
+              <Label htmlFor="examplePassword">Password:</Label>
               <Input
-                type='password'
+                type="password"
                 value={user.password}
-                name='password'
+                name="password"
                 data
                 onChange={this.handleChange}
               />
             </FormGroup>
-            <Button outline color='primary' type='submit' onClick={this.login}>
+            <Button outline color="primary" type="submit" onClick={this.login}>
               Login
             </Button>
-            <Link to='/signup'>
+            <Link to="/signup">
               <p>Not registered? Create Account!</p>
             </Link>
           </Form>
           <Router>
-            <SignUp path='/signup' />
+            <SignUp path="/signup" />
           </Router>
         </div>
       </>

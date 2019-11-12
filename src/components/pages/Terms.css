@@ -3,3 +3,7 @@
   width: 70%;
   text-align: justify;
 }
+
+@media screen and (max-width: 767px) {
+ .terms-container {width: 90%;}
+}
