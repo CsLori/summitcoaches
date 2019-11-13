@@ -1,6 +1,23 @@
 div form {
   margin: 0 auto;
+  width: 40%;
+  margin-top: 80px;
 }
+
+#phone {
+  display: grid;
+  grid-template-columns: 1fr 6fr;
+}
+
+div .btn {
+  display: flex;
+  margin: 3rem auto;
+  justify-content: center;
+}
+
+/* .invalid {
+  border: 2px solid red;
+} */
 
 @media screen and (max-width: 767px) {
   div form {

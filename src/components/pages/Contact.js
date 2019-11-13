@@ -7,7 +7,7 @@ export default function Contact() {
     width: '100%',
     height: '100%',
     border: '6px solid black',
-    boxSizing: 'border-box',
+    boxSizing: 'border-box'
     // flexGrow: 3
   };
 

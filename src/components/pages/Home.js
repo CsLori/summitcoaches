@@ -33,7 +33,7 @@ export default class Home extends Component {
             </CardBody>
           </Card>
           <Link to="/quote">
-            <Button variant="primary">Get Quote</Button>
+            <Button outline color="primary" type="submit">Get Quote</Button>
           </Link>
         </div>
       </>

@@ -1,0 +1,10 @@
+@media screen and (min-width: 767px) {
+  .cardTop {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    border: none;
+  }
+  .cardTop li {
+    border: none;
+  }
+}

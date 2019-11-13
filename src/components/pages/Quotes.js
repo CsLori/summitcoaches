@@ -1,12 +1,7 @@
-import React, { Component } from 'react';
-import { getQuotes } from '../../api';
-import {
-  Card,
-  CardBody,
-  
-  ListGroupItem,
-  ListGroup
-} from 'reactstrap';
+import React, { Component } from "react";
+import { getQuotes } from "../../api";
+import { Card, CardBody, ListGroupItem, ListGroup } from "reactstrap";
+import "./Quotes.css";
 
 export default class Quotes extends Component {
   state = {
@@ -34,15 +29,20 @@ export default class Quotes extends Component {
     const { data } = this.state;
     if (data) {
       return (
-        <div style={{ margin: '80px auto' }}>
+        <div style={{ margin: "80px auto" }}>
           <h1>Messages</h1>
           {data.map(x => {
+            console.log(x);
             return (
               <Card key={x.id}>
                 <CardBody>
                   <ListGroup>
-                    <ListGroupItem>first name: {x.name}</ListGroupItem>
-                    <ListGroupItem>message: {x.description}</ListGroupItem>
+                    <div className="cardTop">
+                      <ListGroupItem>Name: {x.fullName}</ListGroupItem>
+                      <ListGroupItem>Email: {x.email}</ListGroupItem>
+                      <ListGroupItem>Date: {x.createdAt}</ListGroupItem>
+                    </div>
+                    <ListGroupItem>Message: {x.description}</ListGroupItem>
                   </ListGroup>
                 </CardBody>
               </Card>

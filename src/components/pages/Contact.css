@@ -1,17 +1,27 @@
+div.contact-container {
+  margin: 10rem auto;
+  width: 70%;
+}
+
 .contact-container {
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   margin: 60px auto;
   width: 80%;
 }
 
 .contact-container .card {
   width: 80%;
-  flex-grow: 3;
+}
+
+#map-container-google-2 {
 }
 
 @media screen and (max-width: 767px) {
+  div.contact-container {
+    margin: 10rem auto;
+    width: 100%;
+  }
   .contact-container {
     display: flex;
     flex-direction: column;
@@ -23,7 +33,7 @@
   .contact-container .card {
     margin: 2rem;
   }
-  #map-container-google-2{
+  #map-container-google-2 {
     width: 100%;
   }
 }
