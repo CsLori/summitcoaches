@@ -182,7 +182,7 @@ export default class Quote extends Component {
             />
             <Input
               onChange={this.handleChange}
-              style={!isFormValid && { border: "1px solid red" }}
+              // style={!isFormValid && { border: "1px solid red" }}
               // style={{ width: "20rem" }}
               type="phonenumber"
               required

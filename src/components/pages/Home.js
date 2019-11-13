@@ -25,7 +25,7 @@ export default class Home extends Component {
                 Airport transfers, day trips, sports events, corporate events,
                 festivals, school trips, special events, city breaks, weddings,
                 etc. <br />
-                For enquiries, please contact us at <br />{' '}
+                For enquiries, please contact us at <br />
                 <a href="mailto:sales@summitcoaches@co.uk">
                   sales@summitcoaches@co.uk
                 </a>

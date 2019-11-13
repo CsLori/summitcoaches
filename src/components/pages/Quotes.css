@@ -1,10 +1,35 @@
+.quotes {
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+  width: 60%;
+  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.2), 0 4px 16px 0 rgba(0, 0, 0, 0.19);
+}
+
+.quotes a {
+  width: 30%;
+  background: transparent;
+}
+.msg {
+  text-align: justify;
+}
+li.list-group-item {
+  border: none;
+}
 @media screen and (min-width: 767px) {
-  .cardTop {
+  .nameEmail {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    border: none;
+    grid-template-rows: 1fr 1fr;
+  }
+  .nameEmail li {
+    /* border: none; */
+  }
+  .cardTop {
+    display: flex;
+    justify-content: space-between;
+    /* border: none; */
   }
   .cardTop li {
-    border: none;
+    /* border: none; */
   }
 }
