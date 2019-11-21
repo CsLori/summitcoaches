@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { Component, useState } from 'react';
 import {
   Button,
   Form,
@@ -9,21 +9,21 @@ import {
   UncontrolledTooltip,
   FormFeedback,
   Alert
-} from "reactstrap";
-import "./Quote.css";
-import { createQuote } from "../../api";
-import { navigate } from "@reach/router";
+} from 'reactstrap';
+import './Quote.css';
+import { createQuote } from '../../api';
+import { navigate } from '@reach/router';
 
 export default class Quote extends Component {
   state = {
     quoteForm: {
       email: {
-        email: "",
+        email: '',
         isValid: false,
         validation: { isEmail: true }
       },
       phonenumber: {
-        phonenumber: "",
+        phonenumber: '',
         isValid: false,
         validation: {
           isNumeric: true,
@@ -32,26 +32,27 @@ export default class Quote extends Component {
       },
 
       cityFrom: {
-        cityFrom: "",
+        cityFrom: '',
         isValid: false,
         validation: { minLength: 2 }
       },
-      cityFromAddress: "",
-      cityFromPostcode: "",
+      cityFromAddress: '',
+      cityFromPostcode: '',
       cityTo: {
-        cityTo: "",
+        cityTo: '',
         isValid: false,
         validation: { minLength: 2 }
       },
-      cityToAddress: "",
-      cityToPostcode: "",
+      cityToAddress: '',
+      cityToPostcode: '',
+      passengers: '',
       fullName: {
-        fullName: "",
+        fullName: '',
         isValid: false,
         validation: { minLength: 2 }
       },
       description: {
-        description: "",
+        description: '',
         isValid: true,
         validation: {}
       },
@@ -60,7 +61,7 @@ export default class Quote extends Component {
         isValid: true,
         validation: {}
       },
-      dateTo: { dateTo: "", isValid: true, validation: {} },
+      dateTo: { dateTo: '', isValid: true, validation: {} },
       createdAt: {
         createdAt: new Date().toLocaleString(),
         isValid: true
@@ -72,7 +73,6 @@ export default class Quote extends Component {
   handleChange = e => {
     const value = e.target.value;
     const name = e.target.name;
-    console.log(value, name);
     const quoteForm = { ...this.state.quoteForm };
     const updatedQuoteElement = { ...quoteForm[name] };
 
@@ -88,13 +88,6 @@ export default class Quote extends Component {
       console.log(isFormValid, name);
     }
     this.setState({ quoteForm, isFormValid });
-    // this.setState(prevState => ({
-    //   ...prevState,
-    //   quoteForm: {
-    //     ...prevState.quoteForm,
-    //     [name]: { ...prevState.quoteForm.name, [name]: value }
-    //   }
-    // }));
   };
 
   checkIfValid = (value, rules) => {
@@ -118,13 +111,6 @@ export default class Quote extends Component {
       isValid = pattern.test(value) && isValid;
     }
 
-    if (dateTo > dateFrom) {
-      isValid = true && isValid;
-    }
-    if (new Date(dateFrom) >= new Date()) {
-      isValid = true && isValid;
-    }
-
     return isValid;
   };
 
@@ -133,7 +119,7 @@ export default class Quote extends Component {
     const { quoteForm } = this.state;
     const quote = {
       email: quoteForm.email.email,
-      phonenumber: quoteForm.phonenumber.phonenumber,
+      phonenumber: `+44${quoteForm.phonenumber.phonenumber}`,
       cityFrom: {
         city: quoteForm.cityFrom.cityFrom,
         postcode: quoteForm.cityFromPostcode.cityFromPostcode,
@@ -144,168 +130,164 @@ export default class Quote extends Component {
         postcode: quoteForm.cityToPostcode.cityToPostcode,
         address: quoteForm.cityToAddress.cityToAddress
       },
+      passengers: quoteForm.passengers.passengers,
       fullName: quoteForm.fullName.fullName,
       description: quoteForm.description.description,
       dateFrom: quoteForm.dateFrom.dateFrom,
       dateTo: quoteForm.dateTo.dateTo,
       createdAt: quoteForm.createdAt.createdAt
     };
-    confirm("Are you sure you want to send this?");
-    if ("Are you sure you want to send this?") {
+
+    if (window.confirm('Are you sure you want to send this?')) {
       createQuote(quote).then(() => {
-        alert("Your quote has been submitted!");
-        navigate("/");
+        alert('Your quote has been submitted!');
+        navigate('/');
       });
     }
-
-    // goMail(quote);
   };
 
   render() {
     let styles = {
-      textDecoration: "underline"
+      textDecoration: 'underline'
     };
     const { isFormValid, quoteForm, dateFrom } = this.state;
     return (
       <>
         <Form onSubmit={this.handleSubmit}>
           <FormGroup>
-            <Label htmlFor="email">
+            <Label htmlFor='email'>
               Email
-              <UncontrolledTooltip placement="bottom" target="email">
+              <UncontrolledTooltip placement='bottom' target='email'>
                 <div style={styles}>hdfjsdhfjsdhf</div>
               </UncontrolledTooltip>
             </Label>
             <Input
               onChange={this.handleChange}
-              type="email"
+              type='email'
               required
-              name="email"
-              id="email"
-              placeholder="johndoe@gmail.com"
+              name='email'
+              id='email'
+              placeholder='johndoe@gmail.com'
               valid={quoteForm.email.isValid}
             />
           </FormGroup>
           <FormGroup>
-            <Label htmlFor="name">Name</Label>
+            <Label htmlFor='name'>Name</Label>
             <Input
               onChange={this.handleChange}
-              type="name"
+              type='name'
               required
-              name="fullName"
-              id="fullName"
-              placeholder="John Doe"
+              name='fullName'
+              id='fullName'
+              placeholder='John Doe'
               valid={quoteForm.fullName.isValid}
             />
           </FormGroup>
-          <Label htmlFor="phonenumber" id="phonenumber">
+          <Label htmlFor='phonenumber' id='phonenumber'>
             Mobile Phone Number
-            <UncontrolledTooltip placement="bottom" target="phonenumber">
-              <div style={styles}>hdfjsdhfjsdhf</div>
+            <UncontrolledTooltip placement='bottom' target='phonenumber'>
+              <div style={styles}>Mobile number without zero at start</div>
             </UncontrolledTooltip>
           </Label>
-          <FormGroup id="phone">
+          <FormGroup id='phone'>
             <Input
-              style={{ width: "60px" }}
+              style={{ width: '60px' }}
               disabled
               onChange={this.handleChange}
-              size="3"
-              type="phonenumber"
+              size='3'
+              type='phonenumber'
               required
-              value="+44"
-              name="phonenumber"
-              id="phonenumber"
-              placeholder="+447123456789"
+              value='+44'
+              name='phonenumber'
+              id='phonenumber'
+              placeholder='+447123456789'
             />
-            <UncontrolledTooltip placement="bottom" target="phonenumber">
-              <div style={styles}>hdfjsdhfjsdhf</div>
+            <UncontrolledTooltip placement='bottom' target='phonenumber'>
+              <div style={styles}>Mobile number without zero at start</div>
             </UncontrolledTooltip>
             <Input
               onChange={this.handleChange}
-              // style={!isFormValid && { border: "1px solid red" }}
-              // style={{ width: "20rem" }}
-              type="phonenumber"
+              type='phonenumber'
               required
-              name="phonenumber"
-              id="phonenumber"
-              placeholder="7123456789"
+              name='phonenumber'
+              id='phonenumber'
+              placeholder='7123456789'
               valid={quoteForm.phonenumber.isValid}
             />
           </FormGroup>
           <FormGroup>
-            <Label htmlFor="departureDate">Departure Date</Label>
+            <Label htmlFor='departureDate'>Departure Date</Label>
             <Input
               onChange={this.handleChange}
-              type="datetime-local"
+              type='datetime-local'
               required
-              name="dateFrom"
-              id="dateFrom"
-              placeholder="11/12/2019"
-              min="2019-11-20T00:00"
+              name='dateFrom'
+              id='dateFrom'
+              placeholder='11/12/2019'
+              min='2019-11-20T00:00'
               min={new Date().toISOString().slice(0, 16)}
             />
           </FormGroup>
           <FormGroup>
-            <Label htmlFor="arrivalDate">Arrival Date</Label>
+            <Label htmlFor='arrivalDate'>Arrival Date</Label>
             <Input
               onChange={this.handleChange}
-              type="datetime-local"
+              type='datetime-local'
               required
-              name="dateTo"
-              id="dateTo"
-              placeholder="16/12/2019"
+              name='dateTo'
+              id='dateTo'
+              placeholder='16/12/2019'
               min={new Date(quoteForm.dateFrom.dateFrom)
                 .toISOString()
                 .slice(0, 16)}
             />
           </FormGroup>
           <FormGroup>
-            <Label htmlFor="cityFrom">City From</Label>
+            <Label htmlFor='cityFrom'>City From</Label>
             <Input
               onChange={this.handleChange}
-              type="city"
+              type='city'
               required
-              name="cityFrom"
-              id="cityFrom"
-              placeholder="London"
+              name='cityFrom'
+              id='cityFrom'
+              placeholder='London'
               valid={quoteForm.cityFrom.isValid}
             />
           </FormGroup>
-          <div className="postcodeAddress">
+          <div className='postcodeAddress'>
             <FormGroup>
-              <Label htmlFor="postcode">Postcode</Label>
+              <Label htmlFor='postcode'>Postcode</Label>
               <Input
                 onChange={this.handleChange}
-                type="postcode"
+                type='postcode'
                 required
-                name="cityFromPostcode"
-                id="cityFromPostcode"
-                placeholder="London"
+                name='cityFromPostcode'
+                id='cityFromPostcode'
+                placeholder='London'
               />
             </FormGroup>
 
             <FormGroup>
-              <Label htmlFor="address">Address</Label>
+              <Label htmlFor='address'>Address</Label>
               <Input
                 onChange={this.handleChange}
-                type="text"
+                type='text'
                 required
-                name="cityFromAddress"
-                id="cityFromAddress"
-                placeholder="London"
+                name='cityFromAddress'
+                id='cityFromAddress'
+                placeholder='London'
               />
             </FormGroup>
           </div>
           <FormGroup>
-            <Label htmlFor="cityTo">City To</Label>
-
+            <Label htmlFor='cityTo'>City To</Label>
             <Input
               onChange={this.handleChange}
-              type="text"
+              type='text'
               required
-              name="cityTo"
-              id="cityTo"
-              placeholder="Edinburgh"
+              name='cityTo'
+              id='cityTo'
+              placeholder='Edinburgh'
               valid={quoteForm.cityTo.isValid}
             />
 
@@ -313,47 +295,57 @@ export default class Quote extends Component {
               Oh noes! that name is already taken
             </FormFeedback>
           </FormGroup>
-          <div className="postcodeAddress">
+          <div className='postcodeAddress'>
             <FormGroup>
-              <Label htmlFor="postcode">Postcode</Label>
+              <Label htmlFor='postcode'>Postcode</Label>
               <Input
                 onChange={this.handleChange}
-                type="postcode"
+                type='postcode'
                 required
-                name="cityToPostcode"
-                id="cityToPostcode"
-                placeholder="London"
+                name='cityToPostcode'
+                id='cityToPostcode'
+                placeholder='London'
               />
             </FormGroup>
             <FormGroup>
-              <Label htmlFor="address">Address</Label>
+              <Label htmlFor='address'>Address</Label>
               <Input
                 onChange={this.handleChange}
-                type="text"
+                type='text'
                 required
-                name="cityToAddress"
-                id="cityToAddress"
-                placeholder="London"
+                name='cityToAddress'
+                id='cityToAddress'
+                placeholder='London'
               />
             </FormGroup>
           </div>
           <FormGroup>
-            <Label htmlFor="description">Description</Label>
+            <Label htmlFor='name'>Number Of Passengerss</Label>
             <Input
               onChange={this.handleChange}
-              rows="10"
-              type="textarea"
-              name="description"
-              id="description"
-              placeholder="Share any additional information about your trip!"
+              type='number'
+              required
+              name='passengers'
+              id='passengers'
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label htmlFor='description'>Description</Label>
+            <Input
+              onChange={this.handleChange}
+              rows='10'
+              type='textarea'
+              name='description'
+              id='description'
+              placeholder='Share any additional information about your trip!'
             />
           </FormGroup>
 
           <Button
-            size="md"
+            size='md'
             outline
-            color="primary"
-            type="submit"
+            color='primary'
+            type='submit'
             disabled={!isFormValid}
           >
             Submit
