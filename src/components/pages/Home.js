@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import { Link } from '@reach/router';
+import React, { Component } from "react";
+import { Link } from "@reach/router";
 
-import './Home.css';
+import "./Home.css";
 import {
   Card,
   CardImg,
@@ -9,7 +9,8 @@ import {
   CardBody,
   CardTitle,
   Button
-} from 'reactstrap';
+} from "reactstrap";
+import Payment from "./Payment";
 
 export default class Home extends Component {
   render() {
@@ -33,7 +34,9 @@ export default class Home extends Component {
             </CardBody>
           </Card>
           <Link to="/quote">
-            <Button outline color="primary" type="submit">Get Quote</Button>
+            <Button outline color="primary" type="submit">
+              Get Quote
+            </Button>
           </Link>
         </div>
       </>

@@ -1,9 +1,10 @@
 .services-container {
-  width: 60%;
+  /* width: 60%; */
   margin: 120px auto;
 }
 .services-container .card {
   margin: 20px auto;
+  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.2), 0 4px 16px 0 rgba(0, 0, 0, 0.19);
 }
 .services-container h2 {
   font-weight: bold;

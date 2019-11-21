@@ -40,7 +40,7 @@ export default class LogIn extends Component {
           {error && <p>{error}</p>}
           <Form>
             <FormGroup>
-              <Label htmlFor="exampleemail">Email:</Label>
+              <Label htmlFor="email">Email:</Label>
               <Input
                 type="email"
                 value={user.email}
@@ -49,7 +49,7 @@ export default class LogIn extends Component {
               />
             </FormGroup>
             <FormGroup>
-              <Label htmlFor="examplePassword">Password:</Label>
+              <Label htmlFor="password">Password:</Label>
               <Input
                 type="password"
                 value={user.password}

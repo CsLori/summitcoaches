@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { getQuotes } from "../../api";
 import { Card, CardBody, ListGroupItem, ListGroup, Button } from "reactstrap";
 import "./Quotes.css";
+import { Link, Router } from "@reach/router";
+import Reply from "./Reply";
 
 export default class Quotes extends Component {
   state = {
@@ -48,18 +50,18 @@ export default class Quotes extends Component {
                       <ListGroupItem>Message: {x.description}</ListGroupItem>
                     </div>
                   </ListGroup>
-                  <Button
-                    outline
-                    color="primary"
-                    type="submit"
-                    href={`mailto:${x.email}`}
-                  >
-                    Reply
-                  </Button>
+                  <Link to={`/quotes/${x.id}/reply`} data={x}>
+                    <Button outline color="primary" type="submit">
+                      Reply
+                    </Button>
+                  </Link>
                 </CardBody>
               </Card>
             );
           })}
+          {/* <Router>
+            <Reply path="/:id/reply" />
+          </Router> */}
         </div>
       );
     }

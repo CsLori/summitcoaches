@@ -8,12 +8,11 @@ export default function Contact() {
     height: '100%',
     border: '6px solid black',
     boxSizing: 'border-box'
-    // flexGrow: 3
   };
 
   return (
-    <div className="contact-container">
-      <Card style={{ flexGrow: '1' }}>
+    <div className="contactcontainer">
+      <Card style={{ height: "100%" }}>
         <CardImg top width="100%" src="/img/logo.jpg" alt="Card image cap" />
         <CardBody>
           <CardTitle>Company details:</CardTitle>

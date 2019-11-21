@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from "react";
 
-import fire from '../../Fire/Fire';
+import fire from "../../Fire/Fire";
 
-import './Header.css';
+import "./Header.css";
 import {
   Collapse,
   Navbar,
@@ -11,10 +11,11 @@ import {
   Nav,
   NavItem,
   NavLink
-} from 'reactstrap';
+} from "reactstrap";
 
-export default function Header({ userLoggedIn }) {
+export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  let [userLoggedIn, setUserLoggedIn] = useState(null);
 
   const toggle = () => setIsOpen(!isOpen);
 
@@ -22,12 +23,17 @@ export default function Header({ userLoggedIn }) {
     fire.auth().signOut();
   };
 
+// Getting login info from local storage, so header refreshes on user action
+  useEffect(() => {
+    setUserLoggedIn(localStorage.getItem("userLoggedIn"));
+  });
+
   return (
     <div className="navbar-container">
       <Navbar light expand="md">
         <NavbarBrand href="/">
           <img
-            style={{ width: '75px', height: '50px' }}
+            style={{ width: "75px", height: "50px" }}
             src="/img/logo.jpg"
             alt="log"
           />
@@ -47,9 +53,15 @@ export default function Header({ userLoggedIn }) {
             <NavItem>
               <NavLink href="/terms">TERMS AND CONDITIONS</NavLink>
             </NavItem>
-            <NavItem>
-              <NavLink href="/quote">GET QUOTE</NavLink>
-            </NavItem>
+            {userLoggedIn ? (
+              <NavItem>
+                <NavLink href="/quotes">QUOTES</NavLink>
+              </NavItem>
+            ) : (
+              <NavItem>
+                <NavLink href="/quote">GET QUOTE</NavLink>
+              </NavItem>
+            )}
             {userLoggedIn ? (
               <NavItem>
                 <NavLink href="/" onClick={signout}>

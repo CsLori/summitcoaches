@@ -15,6 +15,13 @@ div .btn {
   justify-content: center;
 }
 
+.postcodeAddress {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: space-between;
+}
+
+
 /* .invalid {
   border: 2px solid red;
 } */

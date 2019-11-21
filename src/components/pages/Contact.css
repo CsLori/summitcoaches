@@ -1,28 +1,26 @@
-div.contact-container {
-  margin: 10rem auto;
-  width: 70%;
-}
-
-.contact-container {
+.contactcontainer {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
   margin: 60px auto;
+
   width: 80%;
 }
 
-.contact-container .card {
+.contactcontainer .card {
+  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.2), 0 4px 16px 0 rgba(0, 0, 0, 0.19);
   width: 80%;
+  margin-top: 0;
 }
 
 #map-container-google-2 {
 }
 
 @media screen and (max-width: 767px) {
-  div.contact-container {
+  .contactcontainer {
     margin: 10rem auto;
     width: 100%;
   }
-  .contact-container {
+  .contactcontainer {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -30,8 +28,8 @@ div.contact-container {
     width: 90%;
   }
 
-  .contact-container .card {
-    margin: 2rem;
+  .contactcontainer .card {
+    margin: 2rem auto;
   }
   #map-container-google-2 {
     width: 100%;

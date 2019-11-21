@@ -1,20 +1,31 @@
-.quotes {
-  margin: 0 auto;
-  padding: 0;
-  box-sizing: border-box;
-  width: 60%;
-  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.2), 0 4px 16px 0 rgba(0, 0, 0, 0.19);
+
+
+.quotes h1 {
+  text-align: center;
 }
 
 .quotes a {
   width: 30%;
   background: transparent;
 }
+
+div .card {
+  width: 60%;
+  margin: 0 auto;
+
+  margin-top: 2rem;
+  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.2), 0 4px 16px 0 rgba(0, 0, 0, 0.19);
+}
 .msg {
   text-align: justify;
 }
 li.list-group-item {
   border: none;
+}
+@media screen and (max-width: 500px) {
+  .quotes {
+    width: 90%;
+  }
 }
 @media screen and (min-width: 767px) {
   .nameEmail {
@@ -31,5 +42,10 @@ li.list-group-item {
   }
   .cardTop li {
     /* border: none; */
+  }
+}
+@media screen and (max-width: 850px) {
+  .quotes {
+    width: 80%;
   }
 }

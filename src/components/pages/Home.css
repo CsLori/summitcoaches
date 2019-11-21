@@ -1,6 +1,6 @@
 .home-container button {
   display: block;
-  margin: 3rem auto;
+  /* margin: 3rem auto; */
   justify-content: center;
 }
 
@@ -12,7 +12,12 @@
 }
 
 .home-container {
+  /* box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.2), 0 4px 16px 0 rgba(0, 0, 0, 0.19); */
   margin: 120px auto;
+  /* width: 60%; */
+}
+
+.home-container .card  {
   width: 60%;
 }
 

@@ -55,3 +55,15 @@ export const getQuotes = () => {
     )
     .then(({ data }) => data);
 };
+
+export const getQuoteByID = (quoteID) => {
+  return axios
+    .get(
+      `https://summitcoaches-98d9a.firebaseio.com/quotes/${quoteID}.json`
+
+      // , {
+      //   name: 'Jockey'
+      // }
+    )
+    .then(({ data }) => data);
+};
